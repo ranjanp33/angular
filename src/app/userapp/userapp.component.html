@@ -1,0 +1,55 @@
+<div class="container">
+
+	<div class="row">
+		<div class="col-4">
+			<h3>Fill up the form</h3>
+			<form action="#" (ngSubmit) = "formbinding()" class="form-group">
+				<p>
+					<label for="uname" >Full Name</label>
+					<input class="form-control" type="text" name="uname" [(ngModel)] = "uname">
+				</p>
+				<p>
+					<label for="uage" >Age</label>
+					<input class="form-control" type="text" name="uage" [(ngModel)] = "uage">
+				</p>
+				<p>
+					<label for="uphone" >Phone</label>
+					<input class="form-control" type="text" name="uphone" [(ngModel)] = "uphone">
+				</p>
+				<p>
+					<label for="#">Rating </label>
+					<ngb-rating [(rate)]="currentRate"></ngb-rating>
+				</p>
+				<p>
+					<input class="form-control btn btn-primary" type="submit">
+				</p>
+			</form>
+		</div>
+		<div class="col-8">
+			<h3>Form Result</h3>
+			<div class="result">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Age</th>
+							<th>Phone</th>
+							<th>Rating</th>
+							<th>Action</th>
+						</tr> 
+					</thead>
+					<tbody>
+						<tr *ngFor = "let user of formArray; let i = index">
+							<!-- <td>{{i+1}}</td> -->
+							<td>{{user.username}}</td>
+							<td>{{user.userage}}</td>
+							<td>{{user.userphone}}</td>
+							<td>{{user.urate}}</td>
+							<td><a (click) = "edit(i)">edit</a> , <a (click) = "delete(i)">delete</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
