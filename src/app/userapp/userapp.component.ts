@@ -35,6 +35,13 @@ export class UserappComponent implements OnInit {
 		this.currentRate = useredit['urate']
 	}
 
+	a: number = 0.259;
+  	b: number = 1.3495;
+
+  	today = '2018/07/23';
+
+  	abc: string = 'ram';
+
   constructor() { }
 
   ngOnInit() {
