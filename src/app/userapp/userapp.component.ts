@@ -45,6 +45,8 @@ export class UserappComponent implements OnInit {
 		let useredit = this.formArray[i]
 		this.uname = useredit['username']
 		this.uage = useredit['userage']
+		this.uphone = useredit['userphone']
+		this.currentRate = useredit['urate']
 	}
 
 	// pipe 
