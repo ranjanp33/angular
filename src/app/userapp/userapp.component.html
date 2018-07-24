@@ -20,6 +20,14 @@
 					<ngb-rating [(rate)]="currentRate"></ngb-rating>
 				</p>
 				<p>
+					<label for="#">Date </label>
+					<input type="date" name="udate" [(ngModel)] = "udate">
+				</p>
+				<p>
+					<label for="#">Salary </label>
+					<input class="form-control" type="text" name="usalary" [(ngModel)] = "usalary">
+				</p>
+				<p>
 					<input class="form-control btn btn-primary" type="submit">
 				</p>
 			</form>
@@ -34,6 +42,8 @@
 							<th>Age</th>
 							<th>Phone</th>
 							<th>Rating</th>
+							<th>Date</th>
+							<th>Salary</th>
 							<th>Action</th>
 						</tr> 
 					</thead>
@@ -44,7 +54,23 @@
 							<td>{{user.userage}}</td>
 							<td>{{user.userphone}}</td>
 							<td>{{user.urate}}</td>
+							<td>{{user.udate | date : 'fullDate'}}</td>
+							<td>{{user.usalary | currency : 'USD'}} </td>
 							<td><a (click) = "edit(i)">edit</a> , <a (click) = "delete(i)">delete</a></td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Age</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor = "let user of userArrs|orderby:'name'">
+							<td>{{user.name}}</td>
+							<td>{{user.age}}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -52,11 +78,13 @@
 		</div>
 	</div>
 	<section class="pipe">
-		<h2>Currency Pipe</h2>
-		<span>{{a | currency : 'AUD'}}</span>
-		<h2>Date pipe</h2>
-		<span>{{today | date: 'mediumDate'}}</span>
-		<h2>Uppercase pipe</h2>
-		<span>{{ abc | titlecase }}</span> 
+		<h4>Currency Pipe</h4>
+		<p>{{a | currency : 'AUD'}}</p>
+		<h4>Date pipe</h4>
+		<p>{{today | date: 'mediumDate'}}</p>
+		<h4>Uppercase pipe</h4>
+		<p>{{ abc | titlecase }}</p> 
+		<h4>Custom Pipe</h4>
+		<p>{{ gipipe | squareroot }}</p>
 	</section>
 </div>

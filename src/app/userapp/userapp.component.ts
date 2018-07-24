@@ -12,13 +12,27 @@ export class UserappComponent implements OnInit {
 	uname: string;
 	uage: number;
 	uphone: number;
+	udate: any;
+	usalary: number;
 	formArray = [];
+	userArrs = [{
+		name: "Bikash Shrestha",
+		age: 28
+	},{
+		name: "Ranjan Prajapati",
+		age: 15
+	},{
+		name: "Aakash Prajapati",
+		age: 30
+	}]
 	formbinding() {
 		let formobj = {
 			username : this.uname,
 			userage : this.uage,
 			userphone : this.uphone,
-			urate : this.currentRate
+			urate : this.currentRate,
+			udate : this.udate,
+			usalary : this.usalary
 		}
 		this.formArray.push(formobj)
 	}
@@ -33,6 +47,7 @@ export class UserappComponent implements OnInit {
 		this.uage = useredit['userage']
 	}
 
+	// pipe 
 	a: number = 0.259;
   	b: number = 1.3495;
 
@@ -40,7 +55,11 @@ export class UserappComponent implements OnInit {
 
   	abc: string = 'ram';
 
-  constructor() { }
+  	// Custom pipe
+  	gipipe = 100;
+
+
+   constructor() { }
 
   ngOnInit() {
   	// this.formbinding();
