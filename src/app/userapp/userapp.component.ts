@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-userapp',
@@ -60,11 +61,20 @@ export class UserappComponent implements OnInit {
   	// Custom pipe
   	gipipe = 100;
 
+  	studentUsers:any;
 
-   constructor() { }
 
-  ngOnInit() {
-  	// this.formbinding();
-  }
+   constructor(private serviceone : UserService) { }
+
+	  ngOnInit() {
+	  	this.serviceone.getuser()
+	  		.then(users=>{
+	  			this.studentUsers = users;
+	  		})
+	  		.catch(userErr=>{
+	  			console.log(userErr)
+	  		})
+	  	// this.formbinding();
+	  }
 
 }

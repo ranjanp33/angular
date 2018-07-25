@@ -74,6 +74,25 @@
 						</tr>
 					</tbody>
 				</table>
+				<h3>School Student Lists <a id="sortBy" style="float: right; font-size: 14px; color: blue; cursor: pointer">Sort By class</a></h3>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Class</th>
+							<th>Roll No.</th>
+							<th>Section</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor = "let std of studentUsers|sortby: 'name'">
+							<td>{{std.name}}</td>
+							<td>{{std.class}}</td>
+							<td>{{std.rollno}}</td>
+							<td>{{std.section}}</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
