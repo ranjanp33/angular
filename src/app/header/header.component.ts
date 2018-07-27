@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  menuArray = [
-	  'Home', 'About', 'Contact'
-  ]
+  // menuArray = [
+	 //  'Home', 'About', 'Contact'
+  // ]
 }

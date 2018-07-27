@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-	constructor() { }
+	constructor(private http: HttpClient) { }
 
 	getuser() {
 		return new Promise((resolve, reject)=>{
@@ -38,5 +39,13 @@ export class UserService {
 		  	];
 		  	resolve(userArr);
 	  	})
+  	}
+
+  	listStudents() {
+  		return this.http.get('http://192.168.1.244:4100/app/users/list');
+  	}
+
+  	createStudent(studentObj) {
+  		return this.http.post('http://192.168.1.244:4100/app/users/create', studentObj);
   	}
 }

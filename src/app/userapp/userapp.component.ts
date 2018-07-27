@@ -16,16 +16,8 @@ export class UserappComponent implements OnInit {
 	udate: any;
 	usalary: number;
 	formArray = [];
-	userArrs = [{
-		name: "Bikash Shrestha",
-		age: 28
-	},{
-		name: "Ranjan Prajapati",
-		age: 15
-	},{
-		name: "Aakash Prajapati",
-		age: 30
-	}]
+	studentData: any = [];
+	
 	formbinding() {
 		let formobj = {
 			username : this.uname,
@@ -48,7 +40,22 @@ export class UserappComponent implements OnInit {
 		this.uage = useredit['userage']
 		this.uphone = useredit['userphone']
 		this.currentRate = useredit['urate']
+		this.udate = useredit['udate']
+		this.usalary = useredit['usalary']
 	}
+
+	userArrs = [{
+		name: "Bikash Shrestha",
+		age: 28
+	},{
+		name: "Ranjan Prajapati",
+		age: 15
+	},{
+		name: "Aakash Prajapati",
+		age: 30
+	}]
+
+
 
 	// pipe 
 	a: number = 0.259;
@@ -75,6 +82,34 @@ export class UserappComponent implements OnInit {
 	  			console.log(userErr)
 	  		})
 	  	// this.formbinding();
+
+	  	this.fetchStudents()
 	  }
+
+	  fetchStudents() {
+	  	this.serviceone.listStudents()
+	  	.subscribe(studentList =>{
+
+	  		this.studentData = studentList['data'];
+	  	})
+	  }
+
+	  createstd() {
+	  	let stdArr = {
+	  		firstName: "Anil",
+	  		lastName: "Maharjan",
+	  		address: "Patan",
+	  		email: "anil.maharjon@yahoo.com"
+	  	}
+	  	this.serviceone.createStudent(stdArr)
+	  	.subscribe(createList =>{
+	  		this.studentData.push(createList['data'])
+	  	}, error=>{
+	  		debugger;
+	  	})
+	  }
+
+
+
 
 }
